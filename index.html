@@ -165,12 +165,6 @@ h1, h2 { text-wrap: balance; }
 #rsvp-in:checked + label { background: var(--mint); border-color: var(--mint); color: var(--ink); }
 #rsvp-out:checked + label { background: var(--pink); border-color: var(--pink); color: var(--ink); }
 .choice input:focus-visible + label { outline: 3px solid var(--yellow); outline-offset: 2px; }
-.send {
-  font: 800 17px var(--body); background: var(--yellow); color: var(--ink); border: 3px solid var(--yellow);
-  border-radius: 999px; padding: 12px; cursor: pointer; box-shadow: 4px 4px 0 var(--pink);
-}
-.send:disabled { opacity: .55; cursor: default; }
-.send:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
 .rsvp .rsvp-msg { margin: 0; min-height: 1.4em; font-weight: 700; font-size: 15px; color: var(--yellow); text-align: center; }
 
 footer { text-align: center; font-weight: 800; margin-top: 26px; font-size: 15px; color: var(--text); }
@@ -277,13 +271,12 @@ main { position: relative; z-index: 1; }
       <h2>RSVP!!</h2>
       <p>Tell us you’re coming by <strong>3 PM on Thursday</strong> so we can lock the headcount.</p>
       <form id="rsvp-form" class="rsvp-form" novalidate>
-        <label class="field-label" for="rsvp-name">Your name</label>
+        <label class="field-label" for="rsvp-name">Your name, then tap In or Out</label>
         <input id="rsvp-name" name="name" type="text" autocomplete="name" maxlength="60" placeholder="First and last name">
         <div class="choice" role="radiogroup" aria-label="Are you coming?">
           <input type="radio" id="rsvp-in" name="status" value="in"><label for="rsvp-in">I’m in 🎉</label>
           <input type="radio" id="rsvp-out" name="status" value="out"><label for="rsvp-out">I’m out 😢</label>
         </div>
-        <button id="rsvp-send" class="send" type="submit">Send RSVP</button>
         <p id="rsvp-msg" class="rsvp-msg" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -537,7 +530,8 @@ main { position: relative; z-index: 1; }
   // WHY: set after the host deploys rsvp-sheet.gs; empty means RSVP is not wired yet
   var RSVP_URL = 'https://script.google.com/macros/s/AKfycbz2P9CmtZokrR3DoSGeW7x1LDd4pTa3nw9pO0zsLL4ILU_3qVy_ptW5_L7Pfa44QCjKSw/exec';
   var form = document.getElementById('rsvp-form'), nameEl = document.getElementById('rsvp-name');
-  var sendBtn = document.getElementById('rsvp-send'), msg = document.getElementById('rsvp-msg');
+  var msg = document.getElementById('rsvp-msg');
+  var radios = form.querySelectorAll('input[name="status"]');
   function say(t) { msg.textContent = t; }
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
@@ -557,26 +551,37 @@ main { position: relative; z-index: 1; }
     say(prev.status === 'out' ? 'You said you’re out. You can change it any time.' : 'You’re in! You can change it any time.');
   }
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault();
+  // WHY: no send button; tapping In or Out is the RSVP, so a busy flag stops double taps sending twice
+  var busy = false, lastSent = prev ? prev.name + '|' + prev.status : '';
+  function setBusy(b) { busy = b; radios.forEach(function (r) { r.disabled = b; }); }
+
+  async function send(force) {
     var name = nameEl.value.trim().replace(/\s+/g, ' ').slice(0, 60);
     var st = form.querySelector('input[name="status"]:checked');
-    if (!name) { say('Add your name first.'); nameEl.focus(); return; }
-    if (!st) { say('Pick in or out.'); return; }
+    if (busy || !st) return;
+    if (!name) { say('Type your name, then tap In or Out.'); nameEl.focus(); return; }
+    if (!force && name + '|' + st.value === lastSent) return;
     if (!RSVP_URL) { say('RSVP opens in a few minutes. Try again shortly.'); return; }
-    sendBtn.disabled = true; say('Sending…');
+    setBusy(true); say('Saving…');
     try {
       // WHY: a plain-text body keeps this a "simple" request, so the browser sends no CORS preflight Apps Script can't answer
       var res = await fetch(RSVP_URL, { method: 'POST', body: JSON.stringify({ name: name, status: st.value, device: device }) });
       var out = await res.json();
       if (!out || !out.ok) throw new Error('rejected');
       save('rsvp-last', JSON.stringify({ name: name, status: st.value }));
+      lastSent = name + '|' + st.value;
       if (st.value === 'in') { say('You’re in, ' + name + '! See you Thursday 🪔'); if (window.inviteCelebrate) window.inviteCelebrate(); }
       else say('Got it, ' + name + '. We’ll miss you.');
     } catch (err) {
-      say('That didn’t go through. Check your connection and send it again.');
-    } finally { sendBtn.disabled = false; }
-  });
+      say('That didn’t save. Check your connection and tap again.');
+    } finally { setBusy(false); }
+  }
+
+  // A tap on either button sends right away (click also fires when the same one is tapped again)
+  radios.forEach(function (r) { r.addEventListener('click', function () { send(true); }); });
+  // Someone who taps first and types their name after gets saved when they leave the name field or press Enter
+  nameEl.addEventListener('change', function () { send(false); });
+  form.addEventListener('submit', function (e) { e.preventDefault(); send(false); });
 })();
 </script>
 </body>
