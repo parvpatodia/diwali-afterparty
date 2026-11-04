@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2A0B47">
+<meta name="description" content="Thu, Nov 5, 8:30 PM till 1 AM at Garden Alameda, San Jose. BYOB. Tap to RSVP.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diwali Afterparty 🪔 Thu, Nov 5">
+<meta property="og:description" content="8:30 PM till 1 AM at Garden Alameda, San Jose. BYOB. Tap to RSVP.">
+<meta property="og:image" content="https://parvpatodia.github.io/diwali-afterparty/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<title>Diwali Afterparty 🪔 Nov 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: one phone-width column of tilted stickers, with Speed reaction GIFs as polaroids between them */
+:root {
+  --base: #FFE14D; --dots: rgba(255,79,163,.35); --ink: #2A0B47; --text: #2A0B47; --on-ink: #FFFFFF;
+  --pink: #FF4FA3; --mint: #3DF5C2; --violet: #B98CFF; --orange: #FF8A3D; --paper: #FFFFFF;
+  --yellow: #FFE14D; --plum: #7B1FA2; --live: #E5212B; --night: #1E0636;
+  --display: "Bagel Fat One", "Arial Black", Impact, sans-serif;
+  --body: "Rubik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --base: #2A0B6B; --dots: rgba(255,79,163,.28); --text: #FFE14D; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --base: #2A0B6B; --dots: rgba(255,79,163,.28); --text: #FFE14D; color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; color: var(--text); overflow-x: hidden; font-family: var(--body);
+  background-color: var(--base);
+  background-image: radial-gradient(var(--dots) 2px, transparent 2.5px);
+  background-size: 22px 22px;
+}
+main {
+  max-width: 460px; margin: 0 auto; padding-block: 16px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2 { text-wrap: balance; }
+
+/* Hero: Speed screaming in front of the Home Delivery dancers */
+.poster {
+  position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 28px; overflow: hidden;
+  border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); background: var(--ink);
+}
+.poster > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 6% 50%; }
+.poster::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(42,11,71,.92) 0%, rgba(42,11,71,.55) 34%, rgba(42,11,71,0) 55%, rgba(42,11,71,0) 72%, rgba(42,11,71,.85) 100%);
+}
+.poster-text { position: absolute; z-index: 2; left: 0; right: 0; top: 7%; text-align: center; padding-inline: 14px; }
+.poster h1 {
+  font-family: var(--display); font-weight: 400; margin: 0;
+  font-size: clamp(48px, 14vw, 66px); line-height: .9; color: var(--yellow);
+  -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill;
+  text-shadow: 5px 5px 0 var(--pink); transform: rotate(-4deg);
+}
+.poster h1 span { display: block; color: var(--mint); text-shadow: 5px 5px 0 var(--plum); }
+.pill {
+  display: inline-block; margin-top: 14px; padding: 8px 14px; border-radius: 999px;
+  background: var(--paper); color: var(--ink); font-weight: 800; font-size: 15px;
+  border: 3px solid var(--ink); transform: rotate(3deg);
+}
+.live {
+  position: absolute; z-index: 3; top: 14px; left: 14px; background: var(--live); color: var(--on-ink);
+  font-weight: 800; font-size: 12px; letter-spacing: .08em; padding: 4px 8px; border-radius: 6px;
+}
+.live::before { content: "●"; margin-right: 5px; animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.poster-cap {
+  position: absolute; z-index: 2; left: 14px; right: 14px; bottom: 14px; color: var(--on-ink);
+  font-weight: 700; font-size: 15px; line-height: 1.35; text-align: left;
+}
+.poster-cap b { color: var(--yellow); }
+.confetti { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.confetti i { position: absolute; top: -20px; border-radius: 2px; animation: fall linear infinite; }
+@keyframes fall { to { transform: translateY(620px) rotate(540deg); } }
+
+.ticker {
+  margin: 24px calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 20px; background: var(--ink); color: var(--yellow);
+  overflow: hidden; white-space: nowrap; transform: rotate(-2deg); border-block: 3px solid var(--pink); padding-block: 10px;
+  font-weight: 800; font-size: 15px; letter-spacing: .04em;
+}
+.ticker div { display: inline-block; animation: scroll 22s linear infinite; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+.stack { display: flex; flex-direction: column; gap: 18px; }
+.intro {
+  background: var(--paper); border: 3px solid var(--ink); border-radius: 20px; box-shadow: 5px 5px 0 var(--ink);
+  padding: 16px 18px; font-size: 17px; line-height: 1.45; font-weight: 500; margin: 0; color: var(--ink);
+}
+.intro em { font-style: normal; font-weight: 800; color: var(--plum); }
+.sticker {
+  border: 3px solid var(--ink); border-radius: 20px; box-shadow: 5px 5px 0 var(--ink);
+  padding: 16px 18px; color: var(--ink);
+}
+.tl { transform: rotate(-1.2deg); }
+.tr { transform: rotate(1.2deg); }
+.s-when { background: var(--mint); }
+.s-where { background: var(--violet); }
+.s-byob { background: var(--orange); }
+.s-cost { background: var(--paper); }
+.s-fit { background: var(--pink); }
+.s-expect { background: var(--mint); }
+.s-banned { background: var(--paper); }
+.sticker .emo { font-size: 30px; line-height: 1; float: right; margin-left: 8px; }
+.sticker h2 { font-family: var(--display); font-weight: 400; font-size: 25px; margin: 0 0 6px; line-height: 1.1; }
+.sticker p { margin: 0; font-size: 16px; line-height: 1.45; font-weight: 500; }
+.sticker p + p { margin-top: 8px; }
+.sticker .aside { font-size: 14px; opacity: .85; }
+.sticker ul { margin: 6px 0 0; padding-left: 20px; font-size: 16px; line-height: 1.45; font-weight: 500; }
+.sticker li + li { margin-top: 6px; }
+.s-banned li::marker { content: "✕  "; color: var(--live); font-weight: 800; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.btn {
+  display: inline-block; padding: 9px 14px; border-radius: 999px; background: var(--ink); color: var(--on-ink);
+  font-weight: 700; font-size: 14px; text-decoration: none;
+}
+.btn:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
+
+/* Polaroid GIFs */
+.polaroid {
+  margin: 0; background: var(--paper); border: 3px solid var(--ink); border-radius: 6px;
+  padding: 10px 10px 12px; box-shadow: 5px 5px 0 var(--ink); max-width: 100%; position: relative;
+}
+.polaroid img { display: block; width: 100%; height: auto; border-radius: 3px; border: 2px solid var(--ink); background: var(--ink); }
+.polaroid figcaption { color: var(--ink); font-weight: 700; font-size: 15px; line-height: 1.35; margin-top: 10px; text-align: center; }
+.polaroid.small { width: 78%; align-self: flex-end; }
+.polaroid.small.left { align-self: flex-start; }
+.tape {
+  position: absolute; top: -12px; left: 50%; width: 84px; height: 22px; margin-left: -42px;
+  background: rgba(255,225,77,.85); border: 2px solid var(--ink); transform: rotate(-4deg);
+}
+
+.rsvp {
+  background: var(--ink); color: var(--on-ink); border: 3px solid var(--ink); border-radius: 24px;
+  box-shadow: 6px 6px 0 var(--pink); padding: 22px 20px; text-align: center; margin-top: 8px;
+}
+.rsvp h2 { font-family: var(--display); font-weight: 400; font-size: 40px; margin: 0; color: var(--yellow); }
+.rsvp p { margin: 8px 0 0; font-size: 16px; line-height: 1.5; }
+.rsvp .small { opacity: .8; font-size: 14px; margin-top: 10px; }
+/* RSVP form on the ink card */
+.rsvp-form { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; text-align: left; }
+.field-label { font-weight: 700; font-size: 14px; color: var(--yellow); letter-spacing: .02em; }
+.rsvp-form input[type="text"] {
+  width: 100%; font: 500 16px var(--body); padding: 12px 14px; border-radius: 14px;
+  border: 3px solid var(--pink); background: var(--paper); color: var(--ink);
+}
+.rsvp-form input[type="text"]:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.choice { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice label {
+  display: block; text-align: center; padding: 12px 8px; border-radius: 14px; cursor: pointer;
+  border: 3px solid var(--paper); color: var(--on-ink); font-weight: 800; font-size: 16px;
+}
+#rsvp-in:checked + label { background: var(--mint); border-color: var(--mint); color: var(--ink); }
+#rsvp-out:checked + label { background: var(--pink); border-color: var(--pink); color: var(--ink); }
+.choice input:focus-visible + label { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.send {
+  font: 800 17px var(--body); background: var(--yellow); color: var(--ink); border: 3px solid var(--yellow);
+  border-radius: 999px; padding: 12px; cursor: pointer; box-shadow: 4px 4px 0 var(--pink);
+}
+.send:disabled { opacity: .55; cursor: default; }
+.send:focus-visible { outline: 3px solid var(--paper); outline-offset: 2px; }
+.rsvp .rsvp-msg { margin: 0; min-height: 1.4em; font-weight: 700; font-size: 15px; color: var(--yellow); text-align: center; }
+
+footer { text-align: center; font-weight: 800; margin-top: 26px; font-size: 15px; color: var(--text); }
+footer small { display: block; font-weight: 500; font-size: 12px; margin-top: 8px; opacity: .75; }
+footer a { color: inherit; }
+/* Burn reveal: the cover is canvas paper that chars and burns away from the edges */
+#burn {
+  position: fixed; inset: 0; width: 100%; height: 100%; z-index: 50; background: var(--night);
+  cursor: pointer; touch-action: manipulation;
+  animation: burn-failsafe .5s 10s forwards; /* WHY: if the script never runs, the cover still clears */
+}
+@keyframes burn-failsafe { to { opacity: 0; visibility: hidden; } }
+#sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+main { position: relative; z-index: 1; }
+.hero-fw { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+.lit .stack > * { animation: stamp .55s cubic-bezier(.3,1.7,.5,1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+.lit .poster { animation: stamp .6s cubic-bezier(.3,1.7,.5,1) both; }
+@keyframes stamp { from { scale: .88; } to { scale: 1; } }
+.relight {
+  margin-top: 12px; font: 800 14px var(--body); color: var(--ink); background: var(--yellow);
+  border: 3px solid var(--ink); border-radius: 999px; padding: 9px 16px; box-shadow: 3px 3px 0 var(--pink); cursor: pointer;
+}
+.relight:focus-visible { outline: 3px solid var(--pink); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .ticker div, .confetti i, .live::before, .lit .stack > *, .lit .poster { animation: none; }
+  .confetti, #burn, #sky, .hero-fw, .relight { display: none; }
+}
+</style>
+
+</head>
+<body>
+<canvas id="burn" aria-hidden="true"></canvas>
+<canvas id="sky" aria-hidden="true"></canvas>
+<main>
+  <section class="poster">
+    <img src="gifs/scream.gif" alt="IShowSpeed screaming at his desk while kids dance to the Happy Diwali song behind him" width="400" height="276">
+    <canvas class="hero-fw" id="heroFw" aria-hidden="true"></canvas>
+    <div class="live">LIVE</div>
+    <div class="confetti" id="confetti"></div>
+    <div class="poster-text">
+      <h1>Diwali<span>Afterparty</span></h1>
+      <div class="pill">Thu, Nov 5 ✦ 8:30 PM till 1 AM</div>
+    </div>
+    <p class="poster-cap">Live footage of you at 12:40 AM when the DJ plays <b>“Happy Diwali”</b>.</p>
+  </section>
+
+  <div class="ticker" aria-hidden="true"><div>
+    <span>BYOB ✦ NOV 5 ✦ GARDEN ALAMEDA ✦ NO “SO, JOB MILA?” ✦ RISHTA AUNTIES NOT INVITED ✦ SPEED APPROVED ✦ OLD MONK ENCOURAGED ✦ </span><span>BYOB ✦ NOV 5 ✦ GARDEN ALAMEDA ✦ NO “SO, JOB MILA?” ✦ RISHTA AUNTIES NOT INVITED ✦ SPEED APPROVED ✦ OLD MONK ENCOURAGED ✦ </span>
+  </div></div>
+
+  <div class="stack">
+    <div class="sticker s-when tl"><div class="emo">🕣</div>
+      <h2>Thursday, Nov 5</h2>
+      <p>8:30 PM to 1 AM</p>
+      <div class="btns"><a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Diwali%20Afterparty&amp;dates=20261106T043000Z/20261106T090000Z&amp;location=Garden%20Alameda%2C%201654%20The%20Alameda%20%23110%2C%20San%20Jose%2C%20CA%2095126&amp;details=BYOB.%20Around%20%2410%20to%20%2413%20per%20person.%20Best%20desi%20fit." target="_blank" rel="noopener">Add to calendar</a></div>
+    </div>
+
+    <div class="sticker s-where tr"><div class="emo">📍</div>
+      <h2>Garden Alameda</h2>
+      <p>1654 The Alameda, #110<br>San Jose, CA 95126</p>
+      <div class="btns">
+        <a class="btn" href="https://maps.apple.com/?q=Garden+Alameda+1654+The+Alameda+%23110+San+Jose+CA+95126" target="_blank" rel="noopener">Apple Maps</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Garden+Alameda+1654+The+Alameda+%23110+San+Jose+CA+95126" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </div>
+
+    <div class="sticker s-byob tl"><div class="emo">🍾</div>
+      <h2>BYOB</h2>
+      <p>Bring whatever you’re drinking.</p>
+    </div>
+
+    <div class="sticker s-cost tr"><div class="emo">💸</div>
+      <h2>~$10 to 13 each</h2>
+      <p>Pay by Venmo or Zelle before you enter the party.</p>
+      <p>The per-person price gets locked once the headcount is final.</p>
+    </div>
+
+    <div class="sticker s-fit tl"><div class="emo">✨</div>
+      <h2>Dress code</h2>
+      <p>Wear your best desi outfit.</p>
+    </div>
+
+    <div class="sticker s-expect tr"><div class="emo">🔮</div>
+      <h2>Things that will happen</h2>
+      <ul>
+        <li>Someone requests “Kajra Re” by 9:15.</li>
+        <li>The group photo takes 25 minutes because one guy keeps saying “ek aur, ek aur”.</li>
+        <li>Someone explains the H-1B lottery odds to a person who did not ask.</li>
+        <li>Tunak Tunak at midnight. Non-negotiable.</li>
+      </ul>
+    </div>
+
+    <div class="sticker s-banned tr"><div class="emo">🚫</div>
+      <h2>Banned topics</h2>
+      <ul>
+        <li>LeetCode</li>
+        <li>“Package kitna hai?”</li>
+        <li>Whether your OPT got approved yet</li>
+        <li>Your startup idea, unless it’s funny</li>
+      </ul>
+    </div>
+
+    <div class="rsvp">
+      <h2>RSVP!!</h2>
+      <p>Tell us you’re coming by <strong>3 PM on Thursday</strong> so we can lock the headcount.</p>
+      <form id="rsvp-form" class="rsvp-form" novalidate>
+        <label class="field-label" for="rsvp-name">Your name</label>
+        <input id="rsvp-name" name="name" type="text" autocomplete="name" maxlength="60" placeholder="First and last name">
+        <div class="choice" role="radiogroup" aria-label="Are you coming?">
+          <input type="radio" id="rsvp-in" name="status" value="in"><label for="rsvp-in">I’m in 🎉</label>
+          <input type="radio" id="rsvp-out" name="status" value="out"><label for="rsvp-out">I’m out 😢</label>
+        </div>
+        <button id="rsvp-send" class="send" type="submit">Send RSVP</button>
+        <p id="rsvp-msg" class="rsvp-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <footer>Happy Diwali 🪔<br><button class="relight" id="relight" type="button">Light it again 🔥</button></footer>
+</main>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var COLORS = ['#3DF5C2', '#B98CFF', '#FFD23F', '#FFFFFF', '#FF8A3D', '#FF4FA3'];
+  var burnEl = document.getElementById('burn');
+  if (reduce) { if (burnEl) burnEl.remove(); return; }
+
+  /* Confetti in the hero */
+  var box = document.getElementById('confetti');
+  for (var i = 0; box && i < 28; i++) {
+    var el = document.createElement('i');
+    el.style.left = (Math.random() * 100).toFixed(1) + '%';
+    el.style.background = COLORS[i % COLORS.length];
+    el.style.width = (6 + 2 * Math.floor(Math.random() * 3)) + 'px';
+    el.style.height = (Math.random() < .5 ? 10 : 14) + 'px';
+    el.style.animationDuration = (4 + Math.random() * 4).toFixed(2) + 's';
+    el.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
+    box.appendChild(el);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.stack > *'), function (el, i) { el.style.setProperty('--i', i); });
+
+  /* Fireworks: rockets rise under gravity, burst at the apex, sparks drag and fall */
+  function Fireworks(canvas, opt) {
+    var ctx = canvas.getContext('2d'), w = 0, h = 0, parts = [], rockets = [], wait = opt.first;
+    function size() {
+      var r = canvas.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1);
+      w = r.width; h = r.height;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    size(); window.addEventListener('resize', size);
+    function burst(x, y) {
+      var c1 = COLORS[Math.random() * COLORS.length | 0], c2 = COLORS[Math.random() * COLORS.length | 0];
+      var n = opt.count + (Math.random() * opt.count | 0), sp = opt.speed * (.75 + Math.random() * .5);
+      for (var i = 0; i < n; i++) {
+        var a = Math.PI * 2 * i / n + Math.random() * .15, s = sp * (.5 + Math.random() * .5);
+        parts.push({ x: x, y: y, px: x, py: y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, life: 1,
+          decay: .011 + Math.random() * .012, c: i % 3 ? c1 : c2, tw: Math.random() < .35 });
+      }
+    }
+    function launch() {
+      var x = w * (.12 + Math.random() * .76), ty = h * (opt.top + Math.random() * .3), g = .09;
+      rockets.push({ x: x, y: h + 6, px: x, py: h + 6, vx: (Math.random() - .5) * .8, vy: -Math.sqrt(2 * g * (h + 6 - ty)), g: g });
+    }
+    function step(dt) {
+      wait -= dt * 16.7;
+      if (wait <= 0) { launch(); wait = opt.gap[0] + Math.random() * (opt.gap[1] - opt.gap[0]); }
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalCompositeOperation = opt.blend; ctx.lineCap = 'round';
+      for (var i = rockets.length - 1; i >= 0; i--) {
+        var r = rockets[i]; r.px = r.x; r.py = r.y;
+        r.x += r.vx * dt; r.y += r.vy * dt; r.vy += r.g * dt;
+        ctx.globalAlpha = 1; ctx.strokeStyle = '#FFE9A8'; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.moveTo(r.px, r.py + 6); ctx.lineTo(r.x, r.y); ctx.stroke();
+        if (r.vy >= 0) { burst(r.x, r.y); rockets.splice(i, 1); }
+      }
+      for (var j = parts.length - 1; j >= 0; j--) {
+        var p = parts[j]; p.px = p.x; p.py = p.y;
+        var drag = Math.pow(.965, dt);
+        p.vx *= drag; p.vy = p.vy * drag + .05 * dt;
+        p.x += p.vx * dt; p.y += p.vy * dt; p.life -= p.decay * dt;
+        if (p.life <= 0) { parts.splice(j, 1); continue; }
+        ctx.globalAlpha = p.tw && p.life < .5 ? (Math.random() < .5 ? 0 : 1) : p.life;
+        ctx.strokeStyle = p.c; ctx.lineWidth = 2.2;
+        ctx.beginPath(); ctx.moveTo(p.px - p.vx * 2, p.py - p.vy * 2); ctx.lineTo(p.x, p.y); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+    return { step: step, launch: launch };
+  }
+  window.inviteCelebrate = function () {
+    if (!fwStarted) return;
+    engines.forEach(function (e) { e.launch(); e.launch(); });
+  };
+  var engines = [], fwStarted = false;
+  function startFireworks() {
+    if (fwStarted) return; fwStarted = true;
+    var hero = document.getElementById('heroFw'), sky = document.getElementById('sky');
+    if (hero) engines.push(Fireworks(hero, { count: 34, speed: 3.4, gap: [650, 1500], top: .06, first: 150, blend: 'lighter' }));
+    if (sky) engines.push(Fireworks(sky, { count: 40, speed: 4.2, gap: [900, 2200], top: .08, first: 700, blend: 'source-over' }));
+    var last = performance.now();
+    (function loop(now) {
+      var dt = Math.min(3, (now - last) / 16.7); last = now;
+      for (var i = 0; i < engines.length; i++) engines[i].step(dt);
+      requestAnimationFrame(loop);
+    })(last);
+  }
+
+  /* Value noise, used to make the burn front ragged like real paper */
+  function hash(x, y, s) {
+    var h = (Math.imul(x, 374761393) + Math.imul(y, 668265263) + s) | 0;
+    h = Math.imul(h ^ (h >>> 13), 1274126177); h ^= h >>> 16;
+    return (h >>> 0) / 4294967295;
+  }
+  function vnoise(x, y, s) {
+    var xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    var u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    var a = hash(xi, yi, s), b = hash(xi + 1, yi, s), c = hash(xi, yi + 1, s), d = hash(xi + 1, yi + 1, s);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y, s) { return vnoise(x, y, s) * .55 + vnoise(x * 2.03, y * 2.03, s + 17) * .3 + vnoise(x * 4.1, y * 4.1, s + 41) * .15; }
+
+  function drawCover(buf, w, h, dpr) {
+    var g = buf.getContext('2d');
+    buf.width = Math.round(w * dpr); buf.height = Math.round(h * dpr); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var cx = w / 2, cy = h * .4, s = Math.max(.6, Math.min(1.1, Math.min(w, h) / 700));
+    var bg = g.createRadialGradient(cx, cy, 10, cx, cy, Math.max(w, h) * .75);
+    bg.addColorStop(0, '#4A1580'); bg.addColorStop(1, '#16042A');
+    g.fillStyle = bg; g.fillRect(0, 0, w, h);
+    for (var i = 0; i < w * h / 80; i++) {
+      g.fillStyle = 'rgba(255,225,160,' + (Math.random() * .07).toFixed(3) + ')';
+      g.fillRect(Math.random() * w, Math.random() * h, 1.5, 1.5);
+    }
+    g.setLineDash([2, 9]); g.lineWidth = 2; g.strokeStyle = 'rgba(255,210,63,.7)';
+    g.strokeRect(14, 14, w - 28, h - 28); g.setLineDash([]);
+    [[150, '#FFD23F', 3.2], [122, '#FF4FA3', 2.8], [96, '#3DF5C2', 2.5]].forEach(function (ring) {
+      var r = ring[0] * s, n = Math.round(Math.PI * 2 * r / 13);
+      g.fillStyle = ring[1];
+      for (var k = 0; k < n; k++) {
+        var a = Math.PI * 2 * k / n;
+        g.beginPath(); g.arc(cx + Math.cos(a) * r, cy + Math.sin(a) * r, ring[2] * s, 0, Math.PI * 2); g.fill();
+      }
+    });
+    function petals(count, dist, rx, ry, colors) {
+      for (var k = 0; k < count; k++) {
+        g.save(); g.translate(cx, cy); g.rotate(k * Math.PI * 2 / count);
+        g.beginPath(); g.ellipse(0, -dist * s, rx * s, ry * s, 0, 0, Math.PI * 2);
+        g.fillStyle = colors[k % colors.length]; g.fill();
+        g.lineWidth = 2; g.strokeStyle = '#2A0B47'; g.stroke(); g.restore();
+      }
+    }
+    petals(12, 62, 14, 30, ['#FF8A3D', '#FF4FA3']);
+    petals(8, 38, 9, 18, ['#3DF5C2', '#B98CFF']);
+    g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = Math.round(50 * s) + 'px "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif';
+    g.fillText('🪔', cx, cy + 2);
+    g.font = Math.round(46 * s) + 'px "Bagel Fat One", "Arial Black", Impact, sans-serif';
+    g.fillStyle = '#FF4FA3'; g.fillText('You’re invited', cx + 4, cy + 212 * s + 4);
+    g.fillStyle = '#FFE14D'; g.fillText('You’re invited', cx, cy + 212 * s);
+    g.font = '700 15px Rubik, -apple-system, sans-serif'; g.fillStyle = 'rgba(255,255,255,.78)';
+    g.fillText('Lighting the invite. Tap to speed it up.', cx, cy + 212 * s + 44);
+  }
+
+  var running = false;
+  function burn() {
+    if (running) return; running = true;
+    var c = burnEl, ctx = c && c.getContext('2d');
+    if (!ctx) { if (c) c.remove(); running = false; startFireworks(); return; }
+    c.style.animation = 'none'; c.style.transition = 'none';
+    c.style.display = 'block'; c.style.opacity = '1'; c.style.visibility = 'visible';
+    var w = window.innerWidth, h = window.innerHeight, dpr = Math.min(2, window.devicePixelRatio || 1);
+    c.width = Math.round(w * dpr); c.height = Math.round(h * dpr);
+    var buf = document.createElement('canvas');
+    drawCover(buf, w, h, dpr);
+    ctx.drawImage(buf, 0, 0);
+
+    // WHY: each cell gets an ignition threshold; low near the edges, high at the center, plus noise for a ragged front
+    var cell = 5, gw = Math.ceil(w / cell) + 1, gh = Math.ceil(h / cell) + 1, n = gw * gh;
+    var v = new Float32Array(n), seed = Math.random() * 1e6 | 0;
+    for (var j = 0; j < gh; j++) for (var i = 0; i < gw; i++) {
+      var x = i * cell, y = j * cell;
+      var d = Math.max(0, Math.min(Math.min(x, w - x) / (w / 2), Math.min(y, h - y) / (h / 2)));
+      v[j * gw + i] = d * .85 + (fbm(x / 110, y / 110, seed) - .5) * .55 + (fbm(x / 22, y / 22, seed + 99) - .5) * .12;
+    }
+    var mask = document.createElement('canvas'), fx = document.createElement('canvas');
+    mask.width = fx.width = gw; mask.height = fx.height = gh;
+    var mctx = mask.getContext('2d'), fctx = fx.getContext('2d');
+    var mimg = mctx.createImageData(gw, gh), fimg = fctx.createImageData(gw, gh), md = mimg.data, fd = fimg.data;
+    var embers = [], T0 = -.35, T1 = 1.25, D = 3800, prog = 0, speed = 1, last = 0, begun = false;
+    var GLOW = .022, CHAR = .06, SCORCH = .14;
+
+    c.onpointerdown = function () { speed = 3.5; if (!begun) go(); };
+    function go() { if (begun) return; begun = true; requestAnimationFrame(frame); }
+
+    function frame(now) {
+      var dt = last ? Math.min(50, now - last) : 16.7; last = now;
+      prog += dt * speed / D;
+      var p = Math.min(1, prog), t = T0 + (T1 - T0) * Math.pow(p, 1.6); // WHY: ease-in so the burn speeds up like a time lapse
+      var flick = .8 + Math.random() * .2;
+      for (var k = 0; k < n; k++) {
+        var dl = v[k] - t, o = k * 4;
+        if (dl < -.035) { md[o + 3] = 0; fd[o + 3] = 0; continue; }
+        if (dl < 0) { // hole, with a faint orange halo just behind the front
+          md[o + 3] = 0; fd[o] = 255; fd[o + 1] = 110; fd[o + 2] = 20; fd[o + 3] = 120 * (1 + dl / .035) * flick; continue;
+        }
+        md[o + 3] = 255;
+        if (dl < GLOW) { // glowing ember line
+          var g = 1 - dl / GLOW;
+          fd[o] = 255; fd[o + 1] = 140 + 115 * g * flick; fd[o + 2] = 30 + 170 * g * g * flick; fd[o + 3] = 255;
+          if (Math.random() < .018 && embers.length < 500) {
+            embers.push({ x: (k % gw) * cell, y: ((k / gw) | 0) * cell, vx: (Math.random() - .5) * 1.2, vy: -Math.random() * 1.4,
+              life: 1, decay: .012 + Math.random() * .02, r: 1 + Math.random() * 1.8 });
+          }
+        } else if (dl < CHAR) { // black char
+          var q = (dl - GLOW) / (CHAR - GLOW);
+          fd[o] = 18 + 50 * q; fd[o + 1] = 8 + 20 * q; fd[o + 2] = 4 + 8 * q; fd[o + 3] = 255 * (1 - q * .2);
+        } else if (dl < SCORCH) { // brown scorch fading into the paper
+          var r = (dl - CHAR) / (SCORCH - CHAR);
+          fd[o] = 105; fd[o + 1] = 45; fd[o + 2] = 12; fd[o + 3] = 190 * (1 - r);
+        } else fd[o + 3] = 0;
+      }
+      mctx.putImageData(mimg, 0, 0); fctx.putImageData(fimg, 0, 0);
+      var W = gw * cell * dpr, H = gh * cell * dpr;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.globalCompositeOperation = 'source-over'; ctx.clearRect(0, 0, c.width, c.height);
+      ctx.drawImage(buf, 0, 0);
+      ctx.imageSmoothingEnabled = true;
+      ctx.globalCompositeOperation = 'destination-in'; ctx.drawImage(mask, 0, 0, W, H);
+      ctx.globalCompositeOperation = 'source-over'; ctx.drawImage(fx, 0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var df = dt / 16.7;
+      for (var e = embers.length - 1; e >= 0; e--) {
+        var m = embers[e];
+        m.vy -= .035 * df; m.vx += (Math.random() - .5) * .3 * df;
+        m.x += m.vx * df; m.y += m.vy * df; m.life -= m.decay * df;
+        if (m.life <= 0) { embers.splice(e, 1); continue; }
+        ctx.fillStyle = 'rgba(255,' + (150 + m.life * 90 | 0) + ',60,' + m.life.toFixed(2) + ')';
+        ctx.beginPath(); ctx.arc(m.x, m.y, m.r * (.5 + m.life * .5), 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalCompositeOperation = 'source-over';
+      if (p >= 1 && embers.length === 0) finish(); else requestAnimationFrame(frame);
+    }
+    function finish() {
+      c.style.display = 'none'; c.onpointerdown = null; running = false;
+      document.body.classList.remove('lit'); void document.body.offsetWidth; document.body.classList.add('lit');
+      startFireworks();
+    }
+    var fontReady = document.fonts && document.fonts.load ? document.fonts.load('46px "Bagel Fat One"') : Promise.resolve();
+    Promise.race([fontReady, new Promise(function (r) { setTimeout(r, 700); })]).then(function () {
+      if (!begun) { drawCover(buf, w, h, dpr); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.drawImage(buf, 0, 0); }
+      setTimeout(go, 900);
+    });
+  }
+
+  burn();
+  var again = document.getElementById('relight');
+  if (again) again.addEventListener('click', function () { window.scrollTo(0, 0); burn(); });
+})();
+</script>
+<script>
+/* RSVP: posts to a Google Apps Script web app that writes one row per device into the host's sheet */
+(function () {
+  // WHY: set after the host deploys rsvp-sheet.gs; empty means RSVP is not wired yet
+  var RSVP_URL = '';
+  var form = document.getElementById('rsvp-form'), nameEl = document.getElementById('rsvp-name');
+  var sendBtn = document.getElementById('rsvp-send'), msg = document.getElementById('rsvp-msg');
+  function say(t) { msg.textContent = t; }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+  // WHY: a random per-browser id lets the sheet update someone's row when they change their answer
+  var device = load('rsvp-device');
+  if (!device) {
+    device = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2);
+    save('rsvp-device', device);
+  }
+  var prev = null;
+  try { prev = JSON.parse(load('rsvp-last') || 'null'); } catch (e) {}
+  if (prev && prev.name) {
+    nameEl.value = prev.name;
+    var r = document.getElementById(prev.status === 'out' ? 'rsvp-out' : 'rsvp-in');
+    if (r) r.checked = true;
+    say(prev.status === 'out' ? 'You said you’re out. You can change it any time.' : 'You’re in! You can change it any time.');
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var name = nameEl.value.trim().replace(/\s+/g, ' ').slice(0, 60);
+    var st = form.querySelector('input[name="status"]:checked');
+    if (!name) { say('Add your name first.'); nameEl.focus(); return; }
+    if (!st) { say('Pick in or out.'); return; }
+    if (!RSVP_URL) { say('RSVP opens in a few minutes. Try again shortly.'); return; }
+    sendBtn.disabled = true; say('Sending…');
+    try {
+      // WHY: a plain-text body keeps this a "simple" request, so the browser sends no CORS preflight Apps Script can't answer
+      var res = await fetch(RSVP_URL, { method: 'POST', body: JSON.stringify({ name: name, status: st.value, device: device }) });
+      var out = await res.json();
+      if (!out || !out.ok) throw new Error('rejected');
+      save('rsvp-last', JSON.stringify({ name: name, status: st.value }));
+      if (st.value === 'in') { say('You’re in, ' + name + '! See you Thursday 🪔'); if (window.inviteCelebrate) window.inviteCelebrate(); }
+      else say('Got it, ' + name + '. We’ll miss you.');
+    } catch (err) {
+      say('That didn’t go through. Check your connection and send it again.');
+    } finally { sendBtn.disabled = false; }
+  });
+})();
+</script>
+</body>
+</html>
