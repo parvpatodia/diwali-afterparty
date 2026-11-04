@@ -534,7 +534,7 @@ main { position: relative; z-index: 1; }
 /* RSVP: posts to a Google Apps Script web app that writes one row per device into the host's sheet */
 (function () {
   // WHY: set after the host deploys rsvp-sheet.gs; empty means RSVP is not wired yet
-  var RSVP_URL = '';
+  var RSVP_URL = 'https://script.google.com/macros/s/AKfycbz2P9CmtZokrR3DoSGeW7x1LDd4pTa3nw9pO0zsLL4ILU_3qVy_ptW5_L7Pfa44QCjKSw/exec';
   var form = document.getElementById('rsvp-form'), nameEl = document.getElementById('rsvp-name');
   var sendBtn = document.getElementById('rsvp-send'), msg = document.getElementById('rsvp-msg');
   function say(t) { msg.textContent = t; }
