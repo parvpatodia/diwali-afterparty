@@ -31,6 +31,7 @@ function checkPayments() {
     }
     if (!rsvp.getRange(1, PAID_COL).getValue()) rsvp.getRange(1, PAID_COL).setValue('Paid');
     if (!rsvp.getRange('J1').getValue()) rsvp.getRange('J1:K1').setValues([['Total paid', '=COUNTIF(E:E,TRUE)']]);
+    if (!pay.getRange('I1').getValue()) pay.getRange('I1:L1').setValues([['Paid', '=COUNTIF(RSVPs!E:E,TRUE)', 'Confirmed', '=COUNTIF(RSVPs!B:B,"In")']]);
 
     // WHY: the transaction number is the idempotency key, so a re-run never logs or counts a payment twice
     const seen = {};
@@ -51,7 +52,8 @@ function checkPayments() {
           if (!seen[key]) { seen[key] = true; pay.appendRow([msg.getDate(), '', '', '', key, 'CHECK: could not read this email', '']); }
           return;
         }
-        if (seen[z.txn]) return;
+        // WHY: other Zelle money (rent splits, $100s) is not party money, so it stays out of the tab
+        if (seen[z.txn] || z.amount % PRICE !== 0) return;
         seen[z.txn] = true;
         const m = matchPayment_(z, people);
         m.rows.forEach(function (p) {
