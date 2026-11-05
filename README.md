@@ -16,6 +16,10 @@ https://parvpatodia.github.io/diwali-afterparty/
 
 Each browser gets a random device id, so a guest who changes their answer updates their row instead of adding a second one. Totals are in F1:I1 of the `RSVPs` tab.
 
+## Payment tracking
+
+`zelle-payments.gs` goes in the same Apps Script project. Run `setup` once and allow Gmail access. Every 5 minutes it reads Chase Zelle receipts, logs each one in a `Payments` tab keyed by transaction number, and ticks Paid (column E) only when the amount and names match RSVP rows with no ambiguity. Anything else is marked CHECK for the host.
+
 ## Local check
 
 Open `index.html` in a browser. People with reduced motion turned on skip the burn and fireworks.
